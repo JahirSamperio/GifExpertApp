@@ -1,26 +1,33 @@
 import React from 'react'
 import {useState} from 'react'
+import { AddCategory, GifGrid } from './components'
 
 export const GiftExpertApp = () => {
 
-    const [categories, setCategories] = useState([ 'One punch', 'Star Wars' ])
+    const [categories, setCategories] = useState(['Star Wars' ])
 
-    console.log(categories);
+    const onAddCategory = (newCategory) => {
+        // categories.push(newCategory);
+        if (categories.includes(newCategory)) return; //Corta la funcion si ya existe un elemento igual
+        // setCategories(categories.push('Valorant'))
+        setCategories([ newCategory, ...categories ])
+    }
   return (
     <>
-        {/* Titulo */}
         <h1>Gift Expert App</h1>
-        {/* Input */}
-
-        {/* Listado de gifs */}
-        <ol>
-            { 
-                categories.map( category => {
-                    return <li key={ category }>{ category }</li>
-                })
-            }
-        </ol>
-            {/* Gif item */}
+        <AddCategory 
+            title = {'Agregar categoria'}
+            // setCategories={setCategories}
+            onNewCategory = { ( event ) => onAddCategory(event)} //event es el argumento, no importa el nombre
+        />
+        { 
+            categories.map( (category) => (
+                <GifGrid 
+                    key={category}
+                    category={category}
+                />
+            ))
+        }
 
     </>
   )
