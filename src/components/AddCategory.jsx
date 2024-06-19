@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 
 
 //Se recibe el estado del componente padre
@@ -23,7 +24,7 @@ export const AddCategory = ({title, onNewCategory}) => {
 
   return (
     <>
-        <form onSubmit={ (event) => onSubmit(event)}>
+        <form onSubmit={ (event) => onSubmit(event)} aria-label="form">
             <p> {title} </p>
             <input 
                 type='text'
@@ -34,4 +35,8 @@ export const AddCategory = ({title, onNewCategory}) => {
         </form>
     </>
   )
+}
+
+AddCategory.propTypes = {   
+    onNewCategory: PropTypes.func.isRequired
 }

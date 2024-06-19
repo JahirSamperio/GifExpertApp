@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba de GifItem Prueba de snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="StarWars"
+      src="http://uaeh.edu.mx/"
+    />
+    <p>
+       
+      StarWars
+       
+    </p>
+  </div>
+</div>
+`;
